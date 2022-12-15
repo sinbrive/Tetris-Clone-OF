@@ -1,1 +1,1 @@
-# Teris clone using Openframeworks
+# Tertis clone using Openframeworks
