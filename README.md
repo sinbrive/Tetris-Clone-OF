@@ -1,1 +1,1 @@
-# Tertis clone using Openframeworks
+# Tetris clone game using Openframeworks.
