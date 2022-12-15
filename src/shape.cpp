@@ -52,7 +52,7 @@ void Shape::move(float xx, float yy) {
 void Shape::draw() {
     ofFill();
     ofSetColor(col);
-    for (const auto element : pattern) {
+    for (const auto& element : pattern) {
         float xx = element.x * 20 + x;
         float yy = element.y * 20 + y;
         ofRect(xx, yy, 20, 20);
@@ -60,9 +60,9 @@ void Shape::draw() {
 }
 
 //--------------
-uint8_t Shape::maxY() {
-    uint8_t largest = 0;
-    for (const auto obj : pattern) {
+float Shape::maxY() {
+    float largest = 0;
+    for (const auto& obj : pattern) {
         if (largest < obj.y) {
             largest = obj.y;
         }
@@ -77,9 +77,9 @@ float Shape::highestY() {
 
 
 //--------------
-uint8_t Shape::getNbX() {
-    uint8_t largest = 0;
-    for (const auto obj : pattern) {
+float Shape::getNbX() {
+    float largest = 0;
+    for (const auto& obj : pattern) {
         if (largest < obj.x) {
             largest = obj.x;
         }
@@ -89,7 +89,7 @@ uint8_t Shape::getNbX() {
 
 //--------------
 bool Shape::xOutRightSide(float limit) {
-    for (auto obj : pattern) {
+    for (auto& obj : pattern) {
         float xx = obj.x * 20 + x;
         if (xx > limit) return true;
     }
@@ -98,8 +98,8 @@ bool Shape::xOutRightSide(float limit) {
 
 //--------------
 bool Shape::canMoveDown(vector<Point> wall) {
-    for (auto ln : wall) {
-        for (const auto obj : pattern) {
+    for (const auto& ln : wall) {
+        for (const auto& obj : pattern) {
             float a = obj.x * 20 + x;
             float b = obj.y * 20 + y;
             if ((a == ln.x) &&
@@ -112,7 +112,7 @@ bool Shape::canMoveDown(vector<Point> wall) {
 //--------------
 vector<Point> Shape::getRealCoords() {
     vector<Point> ret;
-    for (const auto row : pattern) {
+    for (const auto& row : pattern) {
         Point p = Point(0, 0);
         p.x = row.x * 20 + x;
         p.y = row.y * 20 + y;

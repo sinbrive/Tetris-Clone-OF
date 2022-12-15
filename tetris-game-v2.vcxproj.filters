@@ -32,7 +32,7 @@
     <ClInclude Include="teros.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\teros.h" />
+    <ClInclude Include="src\tetros.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />

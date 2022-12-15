@@ -189,7 +189,7 @@
     <ClInclude Include="src\game.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\shape.h" />
-    <ClInclude Include="src\teros.h" />
+    <ClInclude Include="src\tetros.h" />
     <ClInclude Include="teros.h" />
   </ItemGroup>
   <ItemGroup>

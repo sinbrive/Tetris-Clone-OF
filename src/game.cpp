@@ -67,7 +67,7 @@ void Game::switchToNextShape() {
 // ----------------------------------
 void Game::checkUpdateScore() {
  
-    float row = row = ofGetHeight() - 10;
+    float row = ofGetHeight() - 10;
     int count = 0;
     do {
         count = 0;

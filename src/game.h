@@ -34,7 +34,7 @@ public:
     bool game_over = false;
     uint64_t chrono;
     int timeLevel = 1000;
-    Shape shape=Shape(10,10);
-    Shape nextShape=Shape(ofGetWidth()-70,10);
+    Shape shape;
+    Shape nextShape;
 };
 

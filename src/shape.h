@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
-#include "teros.h"
+#include "tetros.h"
 
 class Shape
 {
@@ -12,7 +12,7 @@ private:
                                                                                                      ofColor(255,255,255) };
 
 public:
-    Shape(float, float);
+    Shape(float=10, float=10);
     bool xOutRightSide(float);
     float getXoffset();
     float getYoffset();
@@ -21,8 +21,8 @@ public:
     void rotate(uint8_t);
     void move(float, float);
     void draw();
-    uint8_t maxY();
-    uint8_t getNbX();
+    float maxY();
+    float getNbX();
     bool canMoveDown(vector<Point>);
     float highestY();
     vector<Point> getRealCoords();
