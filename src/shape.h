@@ -8,8 +8,7 @@ class Shape
 
 private:
 
-    ofColor colrs[7] = { ofColor(255,0,0), ofColor(0,255,0), ofColor(0,0,255), ofColor(255,255,0), ofColor(0,225,255), ofColor(255,0,255),
-                                                                                                     ofColor(255,255,255) };
+    ofColor colrs[7] = { ofColor::lightBlue, ofColor::darkBlue, ofColor::orange, ofColor::yellow, ofColor::green, ofColor::red, ofColor::magenta };
 
 public:
     Shape(float=10, float=10);
@@ -29,10 +28,9 @@ public:
 
 
     float x, y;
-    uint8_t index;
+    int index;
     vector<Point> pattern;
     ofColor col;
-    Tetros t;
 
 };
 

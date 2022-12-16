@@ -120,8 +120,6 @@ void Game::checkGameOver() {
 // ----------------------------------
 void Game::displayGrid() {
     ofNoFill();
-    //stroke(180)
-    //strokeWeight(0.1)
     for (int j = 10; j < ofGetHeight(); j += 20) {
         for (int i = 10; i < ofGetWidth() - 100; i += 20) {
             ofRect(i, j, 20, 20);

@@ -5,12 +5,13 @@ Shape::Shape(float xx, float yy) {
 
     x = xx;
     y = yy;
-    index = ofRandom(6);
+    index = ofRandom(0,6);
     col = colrs[index];
 
-    for (size_t i = 0; i < 4; i++) {
-        pattern.push_back(t.tetros[index][0][i]);
-    }
+    Tetros t = Tetros(index, 0);
+
+    pattern = t.pattern;
+ 
 }
 
 //--------------
@@ -35,10 +36,11 @@ void Shape::setYoffset(float yy) {
 
 //--------------
 void Shape::rotate(uint8_t rot) {
+    if ((rot < 0) || (rot > 3)) return;
     pattern.clear();
-    for (size_t i = 0; i < 4; i++) {
-        pattern.push_back(t.tetros[index][rot][i]);
-    };
+    Tetros t = Tetros(index, rot);
+    pattern = t.pattern;
+   
 }
 
 
