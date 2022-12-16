@@ -36,7 +36,7 @@ void Shape::setYoffset(float yy) {
 }
 
 //--------------
-void Shape::rotate(uint8_t rot) {
+void Shape::rotate(float limit) {
 
     if ((ofGetElapsedTimeMillis() - rotationTick) < 300) return;
     rotationTick = ofGetElapsedTimeMillis();
@@ -59,19 +59,13 @@ void Shape::rotate(uint8_t rot) {
 
     // reverse
     reverse(trans_vec.begin(), trans_vec.end());
+
+    if (xOutRightSide(trans_vec, limit)) return;
+
     vector<vector <int>> temp;
     pattern = temp;
     pattern = trans_vec;
-    /*pattern.clear();
-    pattern.reserve(trans_vec.size() * trans_vec[0].size());
-    pattern.resize(trans_vec[0].size());
-    pattern[0].resize(trans_vec.size());
-    for (int i = 0; i < trans_vec.size(); i++) {
-        for (int j = 0; j < trans_vec[i].size(); j++) {
-            pattern[j].resize(trans_vec.size());
-            pattern[j][i] = trans_vec[i][j];
-        }
-    }*/
+
 }
 
 
@@ -108,10 +102,10 @@ float Shape::getNbX() {
 }
 
 //--------------
-bool Shape::xOutRightSide(float limit) {
-    for (int y = 0; y < pattern.size(); y++) {
-        if (pattern[y][pattern[0].size() - 1] == 1) {
-            float a = 20 * (pattern[0].size() - 1) + this->x;
+bool Shape::xOutRightSide(vector<vector <int>> sh, float limit) {
+    for (int y = 0; y < sh.size(); y++) {
+        if (sh[y][sh[0].size() - 1] == 1) {
+            float a = 20 * (sh[0].size() - 1) + this->x;
             if (a > limit) return true;
         }
     }

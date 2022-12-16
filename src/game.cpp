@@ -180,15 +180,7 @@ void Game::inputKey(int key) {
     }
 
     if (key == OF_KEY_UP) {
-        int save = rotIndex;
-        rotIndex++;
-        rotIndex = rotIndex % 4;
-        // disable rotation to prevent overflow
-        shape.rotate(rotIndex);
-        if (shape.xOutRightSide(ofGetWidth() - 100)) {
-            rotIndex = save;
-        }
-        shape.rotate(rotIndex);
+        shape.rotate(ofGetWidth()-100);
     }
 
 }

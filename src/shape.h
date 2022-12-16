@@ -13,12 +13,12 @@ private:
 
 public:
     Shape(float=10, float=10);
-    bool xOutRightSide(float);
+    bool xOutRightSide(vector<vector <int>>,float);
     float getXoffset();
     float getYoffset();
     void setXoffset(float);
     void setYoffset(float);
-    void rotate(uint8_t);
+    void rotate(float);
     void move(float, float);
     void draw();
     float getNbX();
