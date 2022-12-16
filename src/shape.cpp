@@ -8,9 +8,11 @@ Shape::Shape(float xx, float yy) {
     index = ofRandom(6);
     col = colrs[index];
 
-    for (size_t i = 0; i < 4; i++) {
-        pattern.push_back(t.tetros[index][0][i]);
-    }
+    t = Tetros(index);
+
+    pattern = t.pattern;
+
+    rotationTick = ofGetElapsedTimeMillis();
 }
 
 //--------------
@@ -35,10 +37,41 @@ void Shape::setYoffset(float yy) {
 
 //--------------
 void Shape::rotate(uint8_t rot) {
-    pattern.clear();
-    for (size_t i = 0; i < 4; i++) {
-        pattern.push_back(t.tetros[index][rot][i]);
-    };
+
+    if ((ofGetElapsedTimeMillis() - rotationTick) < 300) return;
+    rotationTick = ofGetElapsedTimeMillis();
+    
+    vector <vector <int>> trans_vec;
+
+    trans_vec.reserve(pattern.size() * pattern[0].size());
+
+    trans_vec.resize(pattern[0].size());
+    trans_vec[0].resize(pattern.size());
+
+
+    // transpose
+    for (int i = 0; i < pattern.size(); i++) {
+        for (int j = 0; j < pattern[i].size(); j++) {
+            trans_vec[j].resize(pattern.size());
+            trans_vec[j][i] = pattern[i][j];
+        }
+    }
+
+    // reverse
+    reverse(trans_vec.begin(), trans_vec.end());
+    vector<vector <int>> temp;
+    pattern = temp;
+    pattern = trans_vec;
+    /*pattern.clear();
+    pattern.reserve(trans_vec.size() * trans_vec[0].size());
+    pattern.resize(trans_vec[0].size());
+    pattern[0].resize(trans_vec.size());
+    for (int i = 0; i < trans_vec.size(); i++) {
+        for (int j = 0; j < trans_vec[i].size(); j++) {
+            pattern[j].resize(trans_vec.size());
+            pattern[j][i] = trans_vec[i][j];
+        }
+    }*/
 }
 
 
@@ -52,58 +85,52 @@ void Shape::move(float xx, float yy) {
 void Shape::draw() {
     ofFill();
     ofSetColor(col);
-    for (const auto& element : pattern) {
-        float xx = element.x * 20 + x;
-        float yy = element.y * 20 + y;
-        ofRect(xx, yy, 20, 20);
+
+    for (int y = 0; y < pattern.size(); y++) {
+        for (int x = 0; x < pattern[y].size(); x++) {
+            if (pattern[y][x] == 1) {
+                ofRect(20 * x + this->x, 20 * y + this->y, 20, 20);
+            }
+        }
     }
 }
 
-//--------------
-float Shape::maxY() {
-    float largest = 0;
-    for (const auto& obj : pattern) {
-        if (largest < obj.y) {
-            largest = obj.y;
-        }
-    };
-    return largest;
-}
 
 //--------------
 float Shape::highestY() {
-    return (y + 20 * maxY());
+    return (this->y + 20 * (pattern.size() - 1));
 }
 
 
 //--------------
 float Shape::getNbX() {
-    float largest = 0;
-    for (const auto& obj : pattern) {
-        if (largest < obj.x) {
-            largest = obj.x;
-        }
-    };
-    return largest + 1;
+    return pattern[0].size();
 }
 
 //--------------
 bool Shape::xOutRightSide(float limit) {
-    for (auto& obj : pattern) {
-        float xx = obj.x * 20 + x;
-        if (xx > limit) return true;
+    for (int y = 0; y < pattern.size(); y++) {
+        if (pattern[y][pattern[0].size() - 1] == 1) {
+            float a = 20 * (pattern[0].size() - 1) + this->x;
+            if (a > limit) return true;
+        }
     }
     return false;
 }
 
 //--------------
 bool Shape::canMoveDown(vector<Point> wall) {
-    for (const auto& ln : wall) {
-        for (const auto& obj : pattern) {
-            float a = obj.x * 20 + x;
-            float b = obj.y * 20 + y;
-            if ((a == ln.x) &&
-                (b == ln.y)) return false;
+    for (int i = 0; i < wall.size(); i++) {
+        Point ln = wall[i];
+        for (int y = 0; y < pattern.size(); y++) {
+            for (int x = 0; x < pattern[y].size(); x++) {
+                if (pattern[y][x] == 1) {
+                    float a = x * 20 + this->x;
+                    float b = y * 20 + this->y;
+                    if ((a == ln.x) &&
+                        (b == ln.y)) return false;
+                }
+            }
         }
     }
     return true;
@@ -112,15 +139,21 @@ bool Shape::canMoveDown(vector<Point> wall) {
 //--------------
 vector<Point> Shape::getRealCoords() {
     vector<Point> ret;
-    for (const auto& row : pattern) {
-        Point p = Point(0, 0);
-        p.x = row.x * 20 + x;
-        p.y = row.y * 20 + y;
-        p.colour = col;
-        ret.push_back(p);
+    for (int y = 0; y < pattern.size(); y++) {
+        for (int x = 0; x < pattern[0].size(); x++) {
+            if (pattern[y][x] == 1) {
+                Point p = Point(0, 0);
+                p.x = x * 20 + this->x;
+                p.y = y * 20 + this->y;
+                p.colour = col;
+                ret.push_back(p);
+            }
+        }
     }
     return ret;
 }
+
+
 
 
 

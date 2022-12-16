@@ -190,7 +190,6 @@
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\shape.h" />
     <ClInclude Include="src\tetros.h" />
-    <ClInclude Include="teros.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">

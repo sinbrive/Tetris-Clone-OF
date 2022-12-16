@@ -29,9 +29,6 @@
     <ClInclude Include="src\shape.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="teros.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="src\tetros.h" />
   </ItemGroup>
   <ItemGroup>

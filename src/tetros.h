@@ -4,7 +4,7 @@
 class Point {
 
 public:
-
+   
     float x;
     float y;
     ofColor colour;
@@ -17,196 +17,46 @@ public:
 
 };
 
-
 class Tetros {
+    // other solution : array 2*4 following these patterns ->  https://tetris.wiki/Tetris_Guideline
 public:
-    Point tetros[7][4][4] = {
-    {
-        {
-            Point(0, 0),
-            Point(0, 1),
-            Point(0, 2),
-            Point(1, 2)
-        },
-
-            {
-                Point(2, 0),
-                Point(0, 1),
-                Point(1, 1),
-                Point(2, 1)
-            },
-
-            {
-                Point(0, 0),
-                Point(1, 0),
-                Point(1, 1),
-                Point(1, 2)
-            },
-
-            {
-                Point(0, 0),
-                Point(1, 0),
-                Point(0, 1),
-                Point(2, 0)
-            }
-    },
-
-    {
-       {
-           Point(0, 0),
-           Point(1, 0),
-           Point(0, 1),
-           Point(1, 1)
-       },
-           {
-               Point(0, 0),
-               Point(1, 0),
-               Point(0, 1),
-               Point(1, 1)
-           },
-           {
-               Point(0, 0),
-               Point(1, 0),
-               Point(0, 1),
-               Point(1, 1)
-           },
-           {
-               Point(0, 0),
-               Point(1, 0),
-               Point(0, 1),
-               Point(1, 1)
-           }
-    }, {
-           {
-               Point(0, 0),
-               Point(1, 0),
-               Point(2, 0),
-               Point(3, 0)
-           },
-            {
-                Point(0, 0),
-                Point(0, 1),
-                Point(0, 2),
-                Point(0, 3),
-
-            },
-            {
-                Point(0, 0),
-                Point(1, 0),
-                Point(2, 0),
-                Point(3, 0)
-            },
-            {
-                Point(0, 0),
-                Point(0, 1),
-                Point(0, 2),
-                Point(0, 3)
-
-            }
-    },
-    {
-        {
-            Point(0, 0),
-            Point(1, 0),
-            Point(2, 0),
-            Point(1, 1)
-        },
-            {
-                Point(0, 0),
-                Point(0, 1),
-                Point(1, 1),
-                Point(0, 2)
-            },
-            {
-                Point(1, 0),
-                Point(0, 1),
-                Point(1, 1),
-                Point(2, 1)
-            },
-            {
-                Point(0, 1),
-                Point(1, 0),
-                Point(1, 1),
-                Point(1, 2)
-            }
-    },
-    {
-        {
-            Point(1, 0),
-            Point(1, 1),
-            Point(0, 2),
-            Point(1, 2)
-        },
-            {
-                Point(0, 0),
-                Point(0, 1),
-                Point(1, 1),
-                Point(2, 1)
-            },
-            {
-                Point(0, 0),
-                Point(1, 0),
-                Point(0, 1),
-                Point(0, 2)
-            },
-            {
-                Point(0, 0),
-                Point(1, 0),
-                Point(1, 1),
-                Point(1, 2)
-            }
-    },
-    {
-        {
-            Point(1, 0),
-            Point(2, 0),
-            Point(0, 1),
-            Point(1, 1)
-        },
-            {
-                Point(0, 0),
-                Point(0, 1),
-                Point(1, 1),
-                Point(1, 2)
-            },
-            {
-                Point(1, 0),
-                Point(2, 0),
-                Point(0, 1),
-                Point(1, 1)
-            },
-            {
-                Point(0, 0),
-                Point(0, 1),
-                Point(1, 1),
-                Point(1, 2)
-            }
-    },
-    {
-        {
-            Point(0, 0),
-            Point(1, 0),
-            Point(1, 1),
-            Point(2, 1)
-        },
-            {
-                Point(1, 0),
-                Point(0, 1),
-                Point(1, 1),
-                Point(0, 2)
-            },
-            {
-                Point(0, 0),
-                Point(1, 0),
-                Point(1, 1),
-                Point(2, 1)
-            },
-            {
-                Point(1, 0),
-                Point(0, 1),
-                Point(1, 1),
-                Point(0, 2)
-            }
-    }
+    vector <vector <int>> I{
+                               {1, 1, 1, 1}
     };
+    vector <vector <int>> J = {
+                                { 0, 1 },
+                                { 0, 1 },
+                                { 1, 1 }
+    };
+    vector <vector <int>> L = {
+                                { 1, 0 },
+                                { 1, 0 },
+                                { 1, 1 }
+    };
+    vector <vector <int>> O = {
+                               { 1, 1 },
+                               { 1, 1 }
+    };
+    vector <vector <int>> S = {
+                               { 0, 1, 1 },
+                               { 1, 1, 0 }
+    };
+    vector <vector <int>> T = {
+                               { 1, 1, 1 },
+                               { 0, 1, 0 }
+    };
+    vector <vector <int>> Z = {
+                               { 1, 1, 0 },
+                               { 0, 1, 1 }
+    };
+
+    vector<vector <vector <int>>> patternList = { I, J, L, O, S, T, Z };
+
+    vector <vector <int>> pattern;
+
+    Tetros() = default;
+    Tetros(int type) {
+        pattern = patternList[type];
+    }
+
 };

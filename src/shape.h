@@ -8,8 +8,8 @@ class Shape
 
 private:
 
-    ofColor colrs[7] = { ofColor(255,0,0), ofColor(0,255,0), ofColor(0,0,255), ofColor(255,255,0), ofColor(0,225,255), ofColor(255,0,255),
-                                                                                                     ofColor(255,255,255) };
+    ofColor colrs[7] = { ofColor::blue, ofColor::yellow, ofColor::cyan, 
+                        ofColor::purple, ofColor::orange, ofColor::green, ofColor::red };
 
 public:
     Shape(float=10, float=10);
@@ -21,17 +21,17 @@ public:
     void rotate(uint8_t);
     void move(float, float);
     void draw();
-    float maxY();
     float getNbX();
     bool canMoveDown(vector<Point>);
     float highestY();
     vector<Point> getRealCoords();
 
-
+    enum patternType { I = 0, J, L, O, S, T, Z };
     float x, y;
     uint8_t index;
-    vector<Point> pattern;
+    vector<vector <int>> pattern;
     ofColor col;
+    uint64_t rotationTick;
     Tetros t;
 
 };
