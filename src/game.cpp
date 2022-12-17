@@ -66,12 +66,12 @@ void Game::switchToNextShape() {
 
 // ----------------------------------
 void Game::checkUpdateScore() {
- 
+
     float row = ofGetHeight() - 10;
-    int count = 0;
+    int count;
     do {
         count = 0;
-        for (auto it = lines.begin(); it != lines.end(); it++) {
+        for (auto it = lines.begin(); it != lines.end();) {
             if (it->y == row) count++;
             if (count == 10) {
                 count = 0;
@@ -83,15 +83,17 @@ void Game::checkUpdateScore() {
                     level += 1;
                 }
             }
+            else it++;  // change done : it++ replaced here
         }
         row -= 20;
     } while (row > 50);
 
 }
+
 // ----------------------------------
 void Game::removeLine(float row) {
     // https://stackoverflow.com/a/8628963
-    for (auto it = lines.begin(); it != lines.end();) 
+    for (auto it = lines.begin(); it != lines.end();)
     {
         if (it->y == row)
             it = lines.erase(it);
@@ -99,10 +101,10 @@ void Game::removeLine(float row) {
             ++it;
     }
 
-    for (auto it = lines.begin(); it != lines.end();it++)
+    for (auto it = lines.begin(); it != lines.end(); it++)
     {
         if (it->y < row)
-            it->y+=20;
+            it->y += 20;
     }
 
 }
