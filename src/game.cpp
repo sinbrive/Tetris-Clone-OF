@@ -66,12 +66,12 @@ void Game::switchToNextShape() {
 
 // ----------------------------------
 void Game::checkUpdateScore() {
- 
+
     float row = ofGetHeight() - 10;
-    int count = 0;
+    int count;
     do {
         count = 0;
-        for (auto it = lines.begin(); it != lines.end(); it++) {
+        for (auto it = lines.begin(); it != lines.end();) {
             if (it->y == row) count++;
             if (count == 10) {
                 count = 0;
@@ -83,11 +83,13 @@ void Game::checkUpdateScore() {
                     level += 1;
                 }
             }
+            else it++;
         }
         row -= 20;
     } while (row > 50);
 
 }
+
 // ----------------------------------
 void Game::removeLine(float row) {
     // https://stackoverflow.com/a/8628963
