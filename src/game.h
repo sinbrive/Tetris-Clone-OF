@@ -23,7 +23,6 @@ public:
     void displayGrid();
     void drawLines();
     void displaySideBoard();
-    void displayGameOver();
     void inputKey(int);
 
     int rotIndex = 0;

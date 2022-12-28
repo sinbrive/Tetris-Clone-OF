@@ -18,7 +18,6 @@ void Game::setup() {
 
 // ----------------------------------
 void Game::update() {
-    //if (game_over) return;
     makeStepDown();
     if (!shape.canMoveDown(lines) || nextOnFloor()) {
         shape.move(0, -20);
@@ -36,7 +35,6 @@ void Game::draw() {
     shape.draw();
     drawLines();
     displaySideBoard();
-    displayGameOver();
 }
 
 // ----------------------------------
@@ -156,14 +154,6 @@ void Game::displaySideBoard() {
     ofDrawBitmapString("Score " + ofToString(score), ofGetWidth() - 80, ofGetHeight() / 2 + 50);
 }
 
-// ----------------------------------
-void Game::displayGameOver() {
- /*   if (game_over) {
-        ofFill();
-        ofSetColor(255, 100, 100);
-        ofDrawBitmapString("Game Over", ofGetWidth() - 80, ofGetHeight() / 2 + 150);
-    }*/
-}
 
 // ----------------------------------
 void Game::inputKey(int key) {

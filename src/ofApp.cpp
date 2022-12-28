@@ -45,7 +45,7 @@ void ofApp::keyPressed(int key) {
 	}
 
 	if (key == OF_KEY_RETURN) {
-		State::setState(game); // go to start screen
+		State::setState(game); 
 		State::getState()->setup();
 	}
 }

@@ -7,9 +7,6 @@
 class GameOver : public State {
 
 
-private:
-	
-
 public:
 	
 
@@ -27,7 +24,6 @@ public:
 	}
 
 	void draw() {
-		//game.displayGrid();
 		ofSetColor(255);
 		ofDrawBitmapString("game over: ENTER to restart", 6, 12);
 	}
