@@ -1,14 +1,16 @@
 #pragma once
 
 #include "State.h"
+#include "game.h"
 
 // game over screen
 class GameOver : public State {
 
 public:
+	
 
 	GameOver() {
-		// nothing to create, so this is empty
+		
 	}
 
 	void setup() {
