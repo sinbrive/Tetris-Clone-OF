@@ -1,6 +1,5 @@
 #include "game.h"
-
-bool Game::game_over = false;
+#include "ofApp.h"
 // ----------------------------------
 void Game::setup() {
 
@@ -15,13 +14,11 @@ void Game::setup() {
     score = 0;
     level = 1;
 
-    game_over = false;
-
 }
 
 // ----------------------------------
 void Game::update() {
-    if (game_over) return;
+    //if (game_over) return;
     makeStepDown();
     if (!shape.canMoveDown(lines) || nextOnFloor()) {
         shape.move(0, -20);
@@ -121,7 +118,8 @@ void Game::removeLine(float row) {
 void Game::checkGameOver() {
     for (const auto& obj : lines) {
         if (obj.y < 60) {
-            game_over = true;
+            State::setState(ofApp::gameOver);
+            State::getState()->setup();
             return;
         }
     }
@@ -160,11 +158,11 @@ void Game::displaySideBoard() {
 
 // ----------------------------------
 void Game::displayGameOver() {
-    if (game_over) {
+ /*   if (game_over) {
         ofFill();
         ofSetColor(255, 100, 100);
         ofDrawBitmapString("Game Over", ofGetWidth() - 80, ofGetHeight() / 2 + 150);
-    }
+    }*/
 }
 
 // ----------------------------------

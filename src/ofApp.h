@@ -4,6 +4,7 @@
 #include "GameStart.h"
 #include "Game.h"
 #include "GameOver.h"
+//#include "GamePlaying.h"
 
 class ofApp : public ofBaseApp {
 
@@ -24,14 +25,12 @@ public:
 	void windowResized(int w, int h);
 	void dragEvent(ofDragInfo dragInfo);
 	void gotMessage(ofMessage msg);
+
 	
-	GameStart start; // start screen instance
-	Game game; // game instance
+	State* gameStart=new GameStart();
+	static State* gameOver;
+	State* game=new Game();
 
-	GameOver over; // game over screen instance
-
-
-	State* state= nullptr;
-
+	
 
 };

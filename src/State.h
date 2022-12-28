@@ -12,24 +12,21 @@ class State {
 
 public:
 	
-	// set to true when this state is done &
-	// we can go to the next state
-	bool done = false;
+private:
+	static State* currentState;
 
-	// setup the state
-	virtual void setup() {
-		// implement in subclass
-	}
+public:
 
-	// update the state
-	virtual void update() {
-		// implement in subclass
-	}
+	virtual ~State() {};  // important definition
 
-	// draw the state
-	virtual void draw() {
-		// implement in subclass
-	}
+	static void setState(State*);
+	static State* getState();
 
+	// https://stackoverflow.com/a/3065223  (add =0 otherwise link error)
+	virtual void setup() = 0;
 
+	virtual void update() = 0;
+
+	virtual void draw() = 0;
+	virtual void inputKey(int key) = 0;
 };

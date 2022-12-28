@@ -1,6 +1,12 @@
 #include "ofApp.h"
 
 
+/*State* ofApp::gameStart= new GameStart();
+State* ofApp::gameOver= new GameOver();
+State* ofApp::game = new Game();
+*/
+
+State* ofApp::gameOver = new GameOver();
 
 //--------------------------------------------------------------
 void ofApp::setup() {
@@ -13,25 +19,19 @@ void ofApp::setup() {
 
 	ofSetFrameRate(60);
 
-	state = &start;
+	State::setState(gameStart);
 
-	state->setup(); 
+	State::getState()->setup(); 
 }
 
 //----------------------------------
 void ofApp::draw() {
-	state->draw();
+	State::getState()->draw();
 }
 
 //----------------------------------
 void ofApp::update() {		
-	if (state != &over)
-		if (Game::game_over) {
-		state = &over;
-		state->setup();
-		return;
-	}
-	state->update();
+	State::getState()->update();
 	
 }
 
@@ -39,14 +39,14 @@ void ofApp::update() {
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key) {
 
-	if (state == &game) {
-		game.inputKey(key);
+	if (State::getState() == game) {
+		State::getState()->inputKey(key);
 		return;
 	}
 
 	if (key == OF_KEY_RETURN) {
-		state = &game; // go to start screen
-		state->setup();
+		State::setState(game); // go to start screen
+		State::getState()->setup();
 	}
 }
 

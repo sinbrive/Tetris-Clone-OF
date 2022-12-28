@@ -36,9 +36,6 @@ public:
     Shape shape;
     Shape nextShape;
 
-    GameOver over;
-
-    static bool game_over;
 
  
 };
