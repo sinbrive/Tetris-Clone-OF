@@ -1,13 +1,21 @@
 #include "game.h"
 
+bool Game::game_over = false;
 // ----------------------------------
 void Game::setup() {
 
     ofRectMode(OF_RECTMODE_CENTER);
     shape = Shape(10, 10);
     nextShape = Shape(ofGetWidth() - 70, 50);
-
+    ofBackground(0);
     chrono = ofGetElapsedTimeMillis();
+
+    rotIndex = 0;
+    lines.clear();
+    score = 0;
+    level = 1;
+
+    game_over = false;
 
 }
 

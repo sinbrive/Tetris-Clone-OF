@@ -33,6 +33,15 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\tetros.h" />
+    <ClInclude Include="src\State.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameStart.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameOver.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />

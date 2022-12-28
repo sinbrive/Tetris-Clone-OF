@@ -1,9 +1,11 @@
 #pragma once
 
+#include "State.h"
 #include "ofMain.h"
 #include "shape.h"
+#include "GameOver.h"
 
-class Game {
+class Game : public State {
 
 
 public:
@@ -24,17 +26,20 @@ public:
     void displayGameOver();
     void inputKey(int);
 
-
-
     int rotIndex = 0;
     vector<Point> lines;
     int score = 0;
     int points_per_level = 100;
     int level = 1;
-    bool game_over = false;
     uint64_t chrono;
     int timeLevel = 1000;
     Shape shape;
     Shape nextShape;
+
+    GameOver over;
+
+    static bool game_over;
+
+ 
 };
 

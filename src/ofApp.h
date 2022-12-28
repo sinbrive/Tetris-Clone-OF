@@ -1,8 +1,9 @@
 #pragma once
 
 #include "ofMain.h"
+#include "GameStart.h"
 #include "Game.h"
-
+#include "GameOver.h"
 
 class ofApp : public ofBaseApp {
 
@@ -23,8 +24,18 @@ public:
 	void windowResized(int w, int h);
 	void dragEvent(ofDragInfo dragInfo);
 	void gotMessage(ofMessage msg);
+	void setState(State& newstate);
+	State* getState();
 
-	Game game;
+
+
+	GameStart start; // start screen instance
+	Game game; // game instance
+
+	GameOver over; // game over screen instance
+
+
+	State* state= nullptr;
 
 
 };

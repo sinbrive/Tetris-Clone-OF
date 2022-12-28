@@ -1,9 +1,10 @@
 #include "ofApp.h"
 
 
+
 //--------------------------------------------------------------
 void ofApp::setup() {
-	ofBackground(0);
+
 	ofEnableSmoothing();
 	ofEnableAlphaBlending();
 	ofSetWindowTitle("Tetris game");
@@ -12,23 +13,41 @@ void ofApp::setup() {
 
 	ofSetFrameRate(60);
 
-	game.setup();
+	state = &start;
+
+	state->setup(); 
 }
 
 //----------------------------------
 void ofApp::draw() {
-	game.draw();
+	state->draw();
 }
 
 //----------------------------------
-void ofApp::update() {
-	game.update();
+void ofApp::update() {		
+	if (state != &over)
+		if (Game::game_over) {
+		state = &over;
+		state->setup();
+		return;
+	}
+	state->update();
+	
 }
 
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key) {
-	game.inputKey(key);
+
+	if (state == &game) {
+		game.inputKey(key);
+		return;
+	}
+
+	if (key == OF_KEY_RETURN) {
+		state = &game; // go to start screen
+		state->setup();
+	}
 }
 
 //--------------------------------------------------------------

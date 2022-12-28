@@ -187,8 +187,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\game.h" />
+    <ClInclude Include="src\GameOver.h" />
+    <ClInclude Include="src\GameStart.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\shape.h" />
+    <ClInclude Include="src\State.h" />
     <ClInclude Include="src\tetros.h" />
     <ClInclude Include="teros.h" />
   </ItemGroup>
