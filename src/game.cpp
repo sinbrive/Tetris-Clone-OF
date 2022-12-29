@@ -160,6 +160,15 @@ void Game::inputKey(int key) {
 
     float x, y;
 
+    if (key == ' ') {
+        do {
+            shape.move(0, 20);
+        } while (shape.canMoveDown(lines) && !nextOnFloor());
+        shape.move(0, -20);
+        return;
+    }
+
+
     if (key == 'p') {
         State::setState(&ofApp::gamePause);
         return;

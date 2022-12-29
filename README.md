@@ -2,4 +2,4 @@
 
 *branch added for rotation algo* 
 
-State Management : start, game, end (thanks to danomatika )
+State Management : start, game, over (thanks to danomatika )
