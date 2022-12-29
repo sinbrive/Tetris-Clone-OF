@@ -16,6 +16,15 @@
     <ClCompile Include="src\State.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\GameOver.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameStart.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GamePause.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -42,7 +51,11 @@
     <ClInclude Include="src\GameStart.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="..\tetris-game-v2\src\ofApp.h" />
     <ClInclude Include="src\GameOver.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GamePause.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

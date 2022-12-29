@@ -1,8 +1,7 @@
 #pragma once
-// credit  : https://github.com/danomatika/CreativeCodingExamples/blob/master/GameState/src/State.h
 #include "ofMain.h"
 
-
+// credit  : https://github.com/danomatika/CreativeCodingExamples/blob/master/GameState/src/State.h
 // a base game state class,
 // kind of like a mini Sketch
 //
@@ -11,7 +10,7 @@
 class State {
 
 public:
-	
+
 private:
 	static State* currentState;
 
@@ -28,5 +27,6 @@ public:
 	virtual void update() = 0;
 
 	virtual void draw() = 0;
+
 	virtual void inputKey(int key) = 0;
 };

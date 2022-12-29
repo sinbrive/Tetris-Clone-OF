@@ -1,16 +1,15 @@
 #pragma once
 
-
 #include "State.h"
 #include "ofApp.h"
 
 
 // the start screen
-class GameStart : public State {
+class GamePause : public State {
 
 public:
 
-	GameStart();
+	GamePause();
 
 	void setup();
 

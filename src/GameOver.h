@@ -1,33 +1,23 @@
 #pragma once
 
-#include "State.h"
-#include "game.h"
 
+//#include "game.h"
+#include "ofApp.h"
+#include "State.h"
 
 class GameOver : public State {
 
-
 public:
-	
 
-	GameOver() {
-		
-	}
+	GameOver();
 
+	void setup();
 
-	void setup() {
+	void update();
 
-	}
+	void draw();
 
-	void update() {
-
-	}
-
-	void draw() {
-		ofSetColor(255);
-		ofDrawBitmapString("game over: ENTER to restart", 6, 12);
-	}
-
-	void inputKey(int key) {};
+	void inputKey(int key);
 
 };
+

@@ -4,7 +4,7 @@
 #include "GameStart.h"
 #include "Game.h"
 #include "GameOver.h"
-//#include "GamePlaying.h"
+#include "GamePause.h"
 
 class ofApp : public ofBaseApp {
 
@@ -26,11 +26,9 @@ public:
 	void dragEvent(ofDragInfo dragInfo);
 	void gotMessage(ofMessage msg);
 
-	
-	State* gameStart=new GameStart();
-	static State* gameOver;
-	State* game=new Game();
-
-	
+	static State& game;
+	static State& gameStart;
+	static State& gameOver;
+	static State& gamePause;
 
 };
