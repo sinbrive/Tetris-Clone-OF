@@ -18,6 +18,8 @@ public:
 
 	virtual ~State() {};  // important definition
 
+	static vector<State*> statesVec;
+
 	static void setState(State*);
 	static State* getState();
 

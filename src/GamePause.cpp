@@ -1,7 +1,5 @@
 #include "GamePause.h"
 
-GamePause::GamePause() {
-}
 
 void GamePause::setup() {
 
@@ -12,7 +10,7 @@ void GamePause::update() {
 }
 
 void GamePause::draw() {
-	ofApp::game.draw();
+	State::statesVec[2]->draw();
 	ofPushStyle();
 	ofSetColor(255, 0, 0);
 	ofDrawBitmapString("Pause", 210, ofGetHeight() - 70);
@@ -22,6 +20,6 @@ void GamePause::draw() {
 
 void GamePause::inputKey(int key) {
 	if (key == 'p') {
-		State::setState(&ofApp::game);
+		State::setState(State::statesVec[2]);
 	}
 };

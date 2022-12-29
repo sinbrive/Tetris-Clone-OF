@@ -1,12 +1,12 @@
 #include "ofApp.h"
 
-State& ofApp::gameStart=GameStart();
-
-State& ofApp::game=Game();
-
-State& ofApp::gameOver = GameOver();
-
-State& ofApp::gamePause = GamePause();
+//State& ofApp::gameStart=GameStart();
+//
+//State& ofApp::game=Game();
+//
+//State& ofApp::gameOver = GameOver();
+//
+//State& ofApp::gamePause = GamePause();
 
 
 //--------------------------------------------------------------
@@ -20,7 +20,17 @@ void ofApp::setup() {
 
 	ofSetFrameRate(60);
 
-	State::setState(&gameStart);
+	gameStart = new GameStart();
+	game = new Game();
+	gamePause = new GamePause();
+	gameOver = new GameOver();
+
+	State::statesVec.push_back(gameStart);
+	State::statesVec.push_back(game);
+	State::statesVec.push_back(gamePause);
+	State::statesVec.push_back(gameOver);
+	
+	State::setState(State::statesVec[1]);
 
 	State::getState()->setup(); 
 }

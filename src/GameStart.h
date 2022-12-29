@@ -10,8 +10,6 @@ class GameStart : public State {
 
 public:
 
-	GameStart();
-
 	void setup();
 
 	void update();

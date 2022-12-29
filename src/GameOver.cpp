@@ -1,8 +1,5 @@
 #include "GameOver.h"
 
-GameOver::GameOver() {
-}
-
 void GameOver::setup() {
 
 }
@@ -12,7 +9,7 @@ void GameOver::update() {
 }
 
 void GameOver::draw() {
-	ofApp::game.draw();
+	State::statesVec[2]->draw();
 	ofPushStyle();
 	ofSetColor(0, 255, 0);
 	ofDrawBitmapString("Game Over", 210, ofGetHeight() - 70);
@@ -22,7 +19,7 @@ void GameOver::draw() {
 
 void GameOver::inputKey(int key) {
 	if (key == OF_KEY_F1) {
-		State::setState(&ofApp::game);
+		State::setState(State::statesVec[2]);
 		State::getState()->setup();
 	}
 };

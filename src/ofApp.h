@@ -26,9 +26,13 @@ public:
 	void dragEvent(ofDragInfo dragInfo);
 	void gotMessage(ofMessage msg);
 
-	static State& game;
-	static State& gameStart;
-	static State& gameOver;
-	static State& gamePause;
+	State* gameStart;
+
+	State* game;
+
+	State* gameOver;
+
+	State* gamePause;
+
 
 };

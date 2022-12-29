@@ -9,8 +9,6 @@ class GamePause : public State {
 
 public:
 
-	GamePause();
-
 	void setup();
 
 	void update();

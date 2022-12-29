@@ -1,8 +1,5 @@
 #include "GameStart.h"
 
- GameStart::GameStart() {
-
-}
 
 void GameStart::setup() {
 	ofBackground(255);
@@ -32,7 +29,7 @@ void GameStart::draw() {
 void GameStart::inputKey(int key) {
 
 	if (key == OF_KEY_RETURN) {
-		State::setState(&ofApp::game);
+		State::setState(State::statesVec[2]);
 		State::getState()->setup();
 		return;
 	}
