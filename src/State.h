@@ -13,15 +13,16 @@ public:
 
 private:
 	static State* currentState;
+	static vector<State*> statesVec;
 
 public:
 
 	virtual ~State() {};  // important definition
 
-	static vector<State*> statesVec;
-
-	static void setState(State*);
-	static State* getState();
+	static void State::setState(int n);
+	static int addState(State*);
+	static State* getCurrent();
+	static State* getState(int n);
 
 	// https://stackoverflow.com/a/3065223  (add =0 otherwise link error)
 	virtual void setup() = 0;

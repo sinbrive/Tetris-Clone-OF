@@ -10,7 +10,7 @@ void GamePause::update() {
 }
 
 void GamePause::draw() {
-	State::statesVec[2]->draw();
+	State::getState(1)->draw();
 	ofPushStyle();
 	ofSetColor(255, 0, 0);
 	ofDrawBitmapString("Pause", 210, ofGetHeight() - 70);
@@ -20,6 +20,6 @@ void GamePause::draw() {
 
 void GamePause::inputKey(int key) {
 	if (key == 'p') {
-		State::setState(State::statesVec[2]);
+		State::setState(1);
 	}
 };

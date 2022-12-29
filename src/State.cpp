@@ -1,9 +1,23 @@
 #include "State.h"
 
-State* State::currentState = nullptr;
+State* State::currentState;
 
-vector<State*> State::statesVec = { nullptr };
+vector<State*> State::statesVec;
 
-void State::setState(State* state) { currentState = state; }
+int State::addState(State* state) {
+	statesVec.push_back(state);
+	return statesVec.size() - 1;
+}
 
-State* State::getState() { return currentState; }
+
+void State::setState(int n) { 
+	currentState = statesVec[n];
+}
+
+State* State::getState(int n) {
+	return statesVec[n];
+}
+
+State* State::getCurrent() { 
+	return currentState; 
+}

@@ -29,8 +29,8 @@ void GameStart::draw() {
 void GameStart::inputKey(int key) {
 
 	if (key == OF_KEY_RETURN) {
-		State::setState(State::statesVec[2]);
-		State::getState()->setup();
+		State::setState(1);
+		State::getCurrent()->setup();
 		return;
 	}
 }

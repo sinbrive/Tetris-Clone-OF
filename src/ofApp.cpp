@@ -25,24 +25,26 @@ void ofApp::setup() {
 	gamePause = new GamePause();
 	gameOver = new GameOver();
 
-	State::statesVec.push_back(gameStart);
-	State::statesVec.push_back(game);
-	State::statesVec.push_back(gamePause);
-	State::statesVec.push_back(gameOver);
-	
-	State::setState(State::statesVec[1]);
 
-	State::getState()->setup(); 
+
+	int n0 = State::addState(gameStart);  // return 0
+	State::addState(game);		 // return  1
+	State::addState(gamePause);
+	State::addState(gameOver);
+	
+	State::setState(0);
+
+	State::getCurrent()->setup(); 
 }
 
 //----------------------------------
 void ofApp::draw() {
-	State::getState()->draw();
+	State::getCurrent()->draw();
 }
 
 //----------------------------------
 void ofApp::update() {		
-	State::getState()->update();
+	State::getCurrent()->update();
 }
 
 
@@ -51,7 +53,7 @@ void ofApp::keyPressed(int key) {
 
 	if (key == 'q') ofExit();
 
-	State::getState()->inputKey(key);
+	State::getCurrent()->inputKey(key);
 }
 
 //--------------------------------------------------------------

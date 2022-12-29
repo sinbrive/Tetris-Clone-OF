@@ -116,8 +116,8 @@ void Game::removeLine(float row) {
 void Game::checkGameOver() {
     for (const auto& obj : lines) {
         if (obj.y < 60) {
-            State::setState(State::statesVec[4]);
-            State::getState()->setup();
+            State::setState(3);
+            State::getCurrent()->setup();
             return;
         }
     }
@@ -170,7 +170,7 @@ void Game::inputKey(int key) {
 
 
     if (key == 'p') {
-        State::setState(State::statesVec[3]);
+        State::setState(2);
         return;
     }
 
