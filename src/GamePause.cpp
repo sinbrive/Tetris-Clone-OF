@@ -20,6 +20,6 @@ void GamePause::draw() {
 
 void GamePause::inputKey(int key) {
 	if (key == 'p') {
-		State::setState(1);
+		State::setState(State::GAME);
 	}
 };

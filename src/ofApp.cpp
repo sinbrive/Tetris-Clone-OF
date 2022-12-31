@@ -1,13 +1,5 @@
 #include "ofApp.h"
 
-//State& ofApp::gameStart=GameStart();
-//
-//State& ofApp::game=Game();
-//
-//State& ofApp::gameOver = GameOver();
-//
-//State& ofApp::gamePause = GamePause();
-
 
 //--------------------------------------------------------------
 void ofApp::setup() {
@@ -27,12 +19,12 @@ void ofApp::setup() {
 
 
 
-	int n0 = State::addState(gameStart);  // return 0
-	State::addState(game);		 // return  1
+	int n0 = State::addState(gameStart);  // return 0, "START" state
+	State::addState(game);				  // return  1, "GAME" state
 	State::addState(gamePause);
 	State::addState(gameOver);
 	
-	State::setState(0);
+	State::setState(State::START);
 
 	State::getCurrent()->setup(); 
 }

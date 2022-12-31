@@ -19,7 +19,7 @@ void GameOver::draw() {
 
 void GameOver::inputKey(int key) {
 	if (key == OF_KEY_F1) {
-		State::setState(1);
+		State::setState(State::GAME);
 		State::getCurrent()->setup();
 	}
 };

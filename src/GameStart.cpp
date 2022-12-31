@@ -29,7 +29,7 @@ void GameStart::draw() {
 void GameStart::inputKey(int key) {
 
 	if (key == OF_KEY_RETURN) {
-		State::setState(1);
+		State::setState(State::GAME);
 		State::getCurrent()->setup();
 		return;
 	}

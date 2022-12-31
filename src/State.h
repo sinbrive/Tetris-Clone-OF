@@ -19,6 +19,8 @@ public:
 
 	virtual ~State() {};  // important definition
 
+	enum {START=0, GAME, PAUSE, OVER};
+	
 	static void State::setState(int n);
 	static int addState(State*);
 	static State* getCurrent();
