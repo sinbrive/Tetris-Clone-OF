@@ -1,12 +1,8 @@
 #pragma once
 #include "ofMain.h"
 
-// credit  : https://github.com/danomatika/CreativeCodingExamples/blob/master/GameState/src/State.h
-// a base game state class,
-// kind of like a mini Sketch
-//
-// function which can/should be overridden in a subclass
-// *must* have the "virtual" keyword before their declaration
+// thanks to danomatika
+
 class State {
 
 public:
@@ -26,7 +22,7 @@ public:
 	static State* getCurrent();
 	static State* getState(int n);
 
-	// https://stackoverflow.com/a/3065223  (add =0 otherwise link error)
+	// https://stackoverflow.com/a/3065223  (add '=0' otherwise link error)
 	virtual void setup() = 0;
 
 	virtual void update() = 0;

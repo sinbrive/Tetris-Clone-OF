@@ -3,7 +3,6 @@
 #include "State.h"
 #include "ofMain.h"
 #include "shape.h"
-//#include "GameOver.h"
 
 
 class Game : public State {

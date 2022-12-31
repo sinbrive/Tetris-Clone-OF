@@ -3,8 +3,7 @@
 #include "State.h"
 #include "ofApp.h"
 
-
-// the start screen
+// the pause screen
 class GamePause : public State {
 
 public:

@@ -1,6 +1,5 @@
 #include "ofApp.h"
 
-
 //--------------------------------------------------------------
 void ofApp::setup() {
 
@@ -17,10 +16,8 @@ void ofApp::setup() {
 	gamePause = new GamePause();
 	gameOver = new GameOver();
 
-
-
-	int n0 = State::addState(gameStart);  // return 0, "START" state
-	State::addState(game);				  // return  1, "GAME" state
+	int n0 = State::addState(gameStart);  // in State.h : enum {START=0, GAME, PAUSE, OVER};
+	State::addState(game);				  // return  1="State::GAME" state
 	State::addState(gamePause);
 	State::addState(gameOver);
 	

@@ -10,7 +10,6 @@ int State::addState(State* state) {
 }
 
 
-
 void State::setState(int n) { 
 	currentState = statesVec[n];
 }

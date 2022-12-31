@@ -1,6 +1,5 @@
 #include "GamePause.h"
 
-
 void GamePause::setup() {
 
 }
